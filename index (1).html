@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Dashboard - ESP32 Sensor Monitoring</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🌍 IoT Sensor Dashboard</h1>
+            <p class="subtitle">Real-time Monitoring with Firebase</p>
+        </header>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-item">
+                <span class="status-label">Data Status:</span>
+                <span id="firebaseStatus" class="status-offline">● Disconnected</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Last Update:</span>
+                <span id="lastUpdate">Never</span>
+            </div>
+        </div>
+
+        <!-- Main Dashboard Grid -->
+        <div class="dashboard">
+            <!-- Temperature Card -->
+            <div class="sensor-card temperature-card">
+                <div class="card-header">
+                    <h2>🌡 Temperature</h2>
+                </div>
+                <div class="card-body">
+                    <div class="sensor-value" id="tempValue">--</div>
+                    <div class="sensor-unit">°C</div>
+                    <div class="sensor-status" id="tempStatus">Loading...</div>
+                </div>
+                <div class="card-footer">
+                    <small>DHT11 Sensor</small>
+                </div>
+            </div>
+
+            <!-- Humidity Card -->
+            <div class="sensor-card humidity-card">
+                <div class="card-header">
+                    <h2>💧 Humidity</h2>
+                </div>
+                <div class="card-body">
+                    <div class="sensor-value" id="humidityValue">--</div>
+                    <div class="sensor-unit">%</div>
+                    <div class="sensor-status" id="humidityStatus">Loading...</div>
+                </div>
+                <div class="card-footer">
+                    <small>DHT11 Sensor</small>
+                </div>
+            </div>
+
+            <!-- Water Level Card -->
+            <div class="sensor-card water-card">
+                <div class="card-header">
+                    <h2>🌊 Water Level</h2>
+                </div>
+                <div class="card-body">
+                    <div class="water-container">
+                        <div class="water-bar">
+                            <div class="water-fill" id="waterFill"></div>
+                        </div>
+                    </div>
+                    <div class="sensor-value" id="waterValue">--</div>
+                    <div class="sensor-unit">%</div>
+                    <div class="sensor-status" id="waterStatus">Loading...</div>
+                </div>
+                <div class="card-footer">
+                    <small>Analog Water Level Sensor</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Log Section -->
+        <div class="data-log">
+            <h3>📊 Recent Data Log</h3>
+            <div class="log-controls">
+                <button id="clearLogBtn" class="btn-secondary">Clear Log</button>
+                <button id="exportBtn" class="btn-secondary">Export CSV</button>
+            </div>
+            <div class="log-table">
+                <table id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>Temperature (°C)</th>
+                            <th>Humidity (%)</th>
+                            <th>Water Level (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataTableBody">
+                        <tr>
+                            <td colspan="4" class="no-data">No data yet...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Alert Section -->
+        <div id="alertContainer" class="alert-container"></div>
+
+            <!-- AI Chatbot & Speech Control -->
+            <div class="ai-section">
+                <div class="chatbot-widget">
+                    <div id="chatbotMessages" class="chatbot-messages"></div>
+                    <div class="chatbot-input-row">
+                        <input type="text" id="chatbotInput" placeholder="Ask the AI..." />
+                        <button id="chatbotSendBtn">Send</button>
+                        <button id="micBtn" title="Speak"><span id="micIcon">🎤</span></button>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 IoT Dashboard | Real-time Firebase Monitoring</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app (1).js"></script>
+</body>
+</html>

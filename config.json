@@ -1,0 +1,7 @@
+{
+  "sensors": {
+    "temperature": 28.5,
+    "humidity": 65.2,
+    "waterLevel": 75
+  }
+}
